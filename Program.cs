@@ -3,6 +3,7 @@
 Console.WriteLine("Hello, World!");
 Console.WriteLine("1 for Mouse");
 Console.WriteLine("2 for Keyboard");
+Console.WriteLine("3 for desktop shortcut");
 
 
 
@@ -16,4 +17,25 @@ if (userChoice == "1")
 else if (userChoice == "2")
 {
 
+}
+else if (userChoice == "3")
+{
+
+}
+
+switch (userChoice)
+{
+	case "1":
+		MouseWorking mouseWorking = new MouseWorking();
+		mouseWorking.Start();
+		break;
+
+	case "2":
+
+		break;
+
+	case "3":
+		KeyboardInputs keyboardInputs = new KeyboardInputs();
+		keyboardInputs.DesktopShortcut();
+		break;
 }
