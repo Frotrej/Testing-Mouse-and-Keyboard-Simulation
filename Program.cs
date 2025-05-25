@@ -26,15 +26,18 @@ else if (userChoice == "3")
 switch (userChoice)
 {
 	case "1":
+		Console.WriteLine("symulowanie myszy w toku...");
 		MouseWorking mouseWorking = new MouseWorking();
 		mouseWorking.Start();
+
 		break;
 
 	case "2":
-
+		Console.WriteLine("Opcja 2...");
 		break;
 
 	case "3":
+		Console.WriteLine("Symulowanie skrotu klawiaturowego...");
 		KeyboardInputs keyboardInputs = new KeyboardInputs();
 		keyboardInputs.DesktopShortcut();
 		break;
