@@ -1,44 +1,49 @@
-﻿using Testing_Mouse_and_Keyboard_Simulation;
+﻿using System;
+using Testing_Mouse_and_Keyboard_Simulation;
 //https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-sendinput
-Console.WriteLine("Hello, World!");
-Console.WriteLine("1 for Mouse");
-Console.WriteLine("2 for Keyboard");
-Console.WriteLine("3 for desktop shortcut");
+Console.WriteLine("Type a number:");
+Console.WriteLine("1 dla myszy");
+Console.WriteLine("2 dla klawiatury");
+Console.WriteLine("3 dla skrotu klawiszowego");
+Console.WriteLine("4 dal przykladu internetowego klikajacego \"wasd\" ");
 
-
-
-string userChoice = Console.ReadLine();
-if (userChoice == "1")
+int userChoice = 0;
+do
 {
-	MouseWorking mouseWorking = new MouseWorking();
-	mouseWorking.Start();
+	userChoice = Int32.Parse(Console.ReadLine());
 
-}
-else if (userChoice == "2")
-{
 
-}
-else if (userChoice == "3")
-{
+	switch (userChoice)
+	{
+		case 1:
+			Console.WriteLine("Opcja 1...");
+			
+			MouseWorking mouseWorking = new MouseWorking();
+			mouseWorking.Start();
+			
+			Console.WriteLine("Zakonczono\n\n");
+			break;
 
-}
+		case 2:
+			Console.WriteLine("Opcja 2...");
 
-switch (userChoice)
-{
-	case "1":
-		Console.WriteLine("symulowanie myszy w toku...");
-		MouseWorking mouseWorking = new MouseWorking();
-		mouseWorking.Start();
+			Console.WriteLine("Zakonczono\n\n");
+			break;
 
-		break;
+		case 3:
+			Console.WriteLine("Opcja 3...");
 
-	case "2":
-		Console.WriteLine("Opcja 2...");
-		break;
+			Console.WriteLine("Zakonczono\n\n");
+			break;
 
-	case "3":
-		Console.WriteLine("Symulowanie skrotu klawiaturowego...");
-		KeyboardInputs keyboardInputs = new KeyboardInputs();
-		keyboardInputs.DesktopShortcut();
-		break;
-}
+		case 4:
+			Console.WriteLine("Opcja 4...");
+
+			Thread.Sleep(2000);
+			InternetExample example = new InternetExample();
+			example.SendInputWithAPI();
+
+			Console.WriteLine("Zakonczono\n\n");
+			break;
+	}
+} while (userChoice != 0);
