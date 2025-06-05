@@ -8,7 +8,7 @@ using static Testing_Mouse_and_Keyboard_Simulation.SendInputInplementation;
 
 namespace Testing_Mouse_and_Keyboard_Simulation
 {
-	public class KeyboardInputs
+	public class KeyboardSimulation
 	{
 		[DllImport("user32.dll", SetLastError = true)]
 		static extern uint SendInput(uint nInputs, INPUT[] pInputs, int cbSize);

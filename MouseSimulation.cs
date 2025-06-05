@@ -8,7 +8,7 @@ using static Testing_Mouse_and_Keyboard_Simulation.SendInputInplementation;
 
 namespace Testing_Mouse_and_Keyboard_Simulation
 {
-	internal class MouseWorking
+	internal class MouseSimulation
 	{
 
 		[DllImport("user32.dll", SetLastError = true)]
@@ -43,6 +43,7 @@ namespace Testing_Mouse_and_Keyboard_Simulation
 			Input.type = 0;
 			Input.U.mi.dwFlags = MOUSEEVENTF.LEFTDOWN;
 			Inputs[0] = Input;
+
 			Input.type = 0;
 			Input.U.mi.dwFlags = MOUSEEVENTF.LEFTUP;
 			Inputs[1] = Input;
