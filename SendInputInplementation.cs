@@ -7,17 +7,17 @@ using System.Threading.Tasks;
 
 namespace Testing_Mouse_and_Keyboard_Simulation
 {
-	internal class InternetExample
+	public class SendInputInplementation
 	{
 
-		/// Declaration of external SendInput method
+		/// Declaration of external SendInput method to C++
 		[DllImport("user32.dll")]
 		internal static extern uint SendInput(uint nInputs, [MarshalAs(UnmanagedType.LPArray), In] INPUT[] pInputs, int cbSize);
 		///
 
 
-		
-		internal void SendInputWithAPI()
+		//oryginal method for using SendInput
+		/*internal void SendInputWithAPI()
 		{
 			INPUT[] Inputs = new INPUT[4];
 			INPUT Input = new INPUT();
@@ -28,34 +28,18 @@ namespace Testing_Mouse_and_Keyboard_Simulation
 			Inputs[0] = Input;
 
 			Input.type = 1; // 1 = Keyboard Input
-			Input.U.ki.wScan = ScanCodeShort.KEY_S;
+			Input.U.ki.wScan = ScanCodeShort.KEY_W;
 			Input.U.ki.dwFlags = KEYEVENTF.SCANCODE;
 			Inputs[1] = Input;
 
-			Input.type = 1; // 1 = Keyboard Input
-			Input.U.ki.wScan = ScanCodeShort.KEY_A;
-			Input.U.ki.dwFlags = KEYEVENTF.SCANCODE;
-			Inputs[2] = Input;
-
-			Input.type = 1; // 1 = Keyboard Input
-			Input.U.ki.wScan = ScanCodeShort.KEY_D;
-			Input.U.ki.dwFlags = KEYEVENTF.SCANCODE;
-			Inputs[3] = Input;
-
 			SendInput(1, Inputs, INPUT.Size);
-		}
-
-
-
-
-
-
+		}*/
 		
 
 
 		// Declare the INPUT struct
 		[StructLayout(LayoutKind.Sequential)]
-		public struct INPUT
+		internal struct INPUT
 		{
 			internal uint type;
 			internal InputUnion U;
@@ -1003,10 +987,7 @@ namespace Testing_Mouse_and_Keyboard_Simulation
 			PA1 = 0,
 			OEM_CLEAR = 0,
 		}
-
-		/// <summary>
-		/// Define HARDWAREINPUT struct
-		/// </summary>
+		
 		[StructLayout(LayoutKind.Sequential)]
 		internal struct HARDWAREINPUT
 		{

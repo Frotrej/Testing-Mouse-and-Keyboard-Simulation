@@ -5,12 +5,13 @@ Console.WriteLine("Type a number:");
 Console.WriteLine("1 dla myszy");
 Console.WriteLine("2 dla klawiatury");
 Console.WriteLine("3 dla skrotu klawiszowego");
-Console.WriteLine("4 dal przykladu internetowego klikajacego \"wasd\" ");
+Console.WriteLine("4 ... ");
+Console.WriteLine("0 Wyjscie\n\n");
 
 int userChoice = 0;
 do
 {
-	userChoice = Int32.Parse(Console.ReadLine());
+	userChoice = int.TryParse(Console.ReadLine(), out int result) ? result : -1;
 
 
 	switch (userChoice)
@@ -27,6 +28,10 @@ do
 		case 2:
 			Console.WriteLine("Opcja 2...");
 
+			Thread.Sleep(2000);
+			KeyboardInputs keyboardInputs = new KeyboardInputs();
+			keyboardInputs.MyInputs();
+
 			Console.WriteLine("Zakonczono\n\n");
 			break;
 
@@ -38,10 +43,6 @@ do
 
 		case 4:
 			Console.WriteLine("Opcja 4...");
-
-			Thread.Sleep(2000);
-			InternetExample example = new InternetExample();
-			example.SendInputWithAPI();
 
 			Console.WriteLine("Zakonczono\n\n");
 			break;
