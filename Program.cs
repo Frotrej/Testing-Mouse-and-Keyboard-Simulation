@@ -5,7 +5,7 @@ Console.WriteLine("Type a number:");
 Console.WriteLine("1 dla myszy");
 Console.WriteLine("2 dla klawiatury");
 Console.WriteLine("3 dla skrotu klawiszowego");
-Console.WriteLine("4 ... ");
+Console.WriteLine("4 dla Czytania klawiszy ");
 Console.WriteLine("0 Wyjscie\n\n");
 
 int userChoice = 0;
@@ -20,7 +20,7 @@ do
 			Console.WriteLine("Opcja 1...");
 			
 			MouseWorking mouseWorking = new MouseWorking();
-			mouseWorking.Start();
+			mouseWorking.MyInputs();
 			
 			Console.WriteLine("Zakonczono\n\n");
 			break;
@@ -37,6 +37,8 @@ do
 
 		case 3:
 			Console.WriteLine("Opcja 3...");
+
+
 
 			Console.WriteLine("Zakonczono\n\n");
 			break;

@@ -16,29 +16,28 @@ namespace Testing_Mouse_and_Keyboard_Simulation
 
 		internal void MyInputs()
 		{
-			INPUT[] Inputs = new INPUT[10];
+			INPUT[] Inputs = new INPUT[50];
 			INPUT Input = new INPUT();
 			uint howManyInputs = 0;
 
-			INPUT MyKey = new INPUT();
-			MyKey.type = 1;
-			MyKey.U.ki.wScan = ScanCodeShort.KEY_5;
-			MyKey.U.ki.dwFlags = KEYEVENTF.SCANCODE;
-			Inputs[howManyInputs] = MyKey;
+
+			Input.type = 1;
+			Input.U.ki.wScan = ScanCodeShort.KEY_D;
+			Input.U.ki.dwFlags = KEYEVENTF.SCANCODE;
+			Inputs[howManyInputs] = Input;
 			howManyInputs++;
 
-			MyKey.type = 1;
-			MyKey.U.ki.wScan = ScanCodeShort.KEY_A;
-			MyKey.U.ki.dwFlags = KEYEVENTF.SCANCODE;
-			Inputs[howManyInputs] = MyKey;
+			Input.type = 1;
+			Input.U.ki.wScan = ScanCodeShort.KEY_U;
+			Input.U.ki.dwFlags = KEYEVENTF.SCANCODE;
+			Inputs[howManyInputs] = Input;
 			howManyInputs++;
 
-			MyKey.type = 1;
-			MyKey.U.ki.wScan = ScanCodeShort.KEY_A;
-			MyKey.U.ki.dwFlags = KEYEVENTF.UNICODE;
-			Inputs[howManyInputs] = MyKey;
+			Input.type = 1;
+			Input.U.ki.wScan = ScanCodeShort.KEY_P;
+			Input.U.ki.dwFlags = KEYEVENTF.SCANCODE;
+			Inputs[howManyInputs] = Input;
 			howManyInputs++;
-
 
 
 			SendInput(howManyInputs, Inputs, INPUT.Size);
@@ -46,6 +45,31 @@ namespace Testing_Mouse_and_Keyboard_Simulation
 
 
 
+		internal void ShortcutToDesktop()
+		{
+			INPUT[] Inputs = new INPUT[5];
+			INPUT Input = new INPUT();
+			uint howManyInputs = 0;
+
+			Input.type = 1;
+			Input.U.ki.wVk = VirtualKeyShort.LWIN;
+			Inputs[howManyInputs] = Input;
+			howManyInputs++;
+
+			Input.type = 1;
+			Input.U.ki.wScan = ScanCodeShort.KEY_D;
+			Input.U.ki.dwFlags = KEYEVENTF.SCANCODE;
+			Inputs[howManyInputs] = Input;
+			howManyInputs++;
+
+			Input.type = 1;
+			Input.U.ki.wVk = VirtualKeyShort.LWIN;
+			Input.U.ki.dwFlags = KEYEVENTF.KEYUP;
+			Inputs[howManyInputs] = Input;
+			howManyInputs++;
+
+			SendInput(howManyInputs, Inputs, INPUT.Size);
+		}
 
 	}
 }
