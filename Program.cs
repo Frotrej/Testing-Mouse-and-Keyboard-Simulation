@@ -9,16 +9,19 @@ Console.WriteLine("2 dla klawiatury");
 Console.WriteLine("3 dla skrotu klawiszowego");
 Console.WriteLine("4 dla czytania myszy uzytkownika ");
 Console.WriteLine("5 dla czytania klawiszy uzytkownika ");
+Console.WriteLine("6 dla zapisania sekwencji myszy");
+Console.WriteLine("7 pokaz zapisana sekwencje");
 Console.WriteLine("0 Wyjscie\n\n");
+
+ReadSaveAndSymulate readSaveAndSymulate = new();
 
 int userChoice = 0;
 do
 {
 	userChoice = int.TryParse(Console.ReadLine(), out int result) ? result : -1;
 
-	KeyboardSimulation keyboardSimulation = new KeyboardSimulation();
-	MouseSimulation mouseSimulation = new MouseSimulation();
-
+	KeyboardSimulation keyboardSimulation = new();
+	MouseSimulation mouseSimulation = new();
 
 	switch (userChoice)
 	{
@@ -52,7 +55,7 @@ do
 		case 4:
 			Console.WriteLine("Opcja 4...");
 
-			ReadingUserMouse.GetMousePosition();
+			ReadingUserMouse.ShowMousePosition();
 
 			Console.WriteLine("Zakonczono\n\n");
 
@@ -62,6 +65,28 @@ do
 			Console.WriteLine("Opcja 5...");
 
 			ReadingUserKeyStrokes.RecordAndDisplayKeys();
+
+			Console.WriteLine("Zakonczono\n\n");
+
+			break;
+
+		case 6:
+			Console.WriteLine("Opcja 6...");
+
+			readSaveAndSymulate.SaveMousePositions();
+
+			Console.WriteLine("Zakonczono\n\n");
+
+			break;
+
+		case 7:
+			Console.WriteLine("Opcja 7...");
+
+			Console.WriteLine("Zapisane pozycje:");
+			foreach (var item in readSaveAndSymulate.mouseXYs)
+			{
+				Console.WriteLine($"X = {item.X}, Y = {item.Y}");
+			}
 
 			Console.WriteLine("Zakonczono\n\n");
 

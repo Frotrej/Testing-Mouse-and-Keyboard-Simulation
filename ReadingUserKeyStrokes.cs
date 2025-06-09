@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SharpHook.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -22,9 +23,6 @@ namespace Testing_Mouse_and_Keyboard_Simulation
 
 			keys = GetPressedKeys();
 
-
-
-
 			foreach (var item in keys)
 			{
 				Console.WriteLine($"ScanCode: {item}");
@@ -33,33 +31,58 @@ namespace Testing_Mouse_and_Keyboard_Simulation
 
 		internal static List<int> GetPressedKeys()
 		{
-			var pressedKeys = new List<int>();
+			List<int> pressedKeys = new List<int>();
 
 			int lastPressed = 0;
 			do
 			{
-				
 				for (int keyCode = 1; keyCode < 256; keyCode++)
 				{
-					
-					if (keyCode == 231 || keyCode == 241) continue;
-
-					if ((GetAsyncKeyState(keyCode) & 0x8000) != 0)
+					//check if keycode is in range of 126 keyboard keys
+					if ((GetAsyncKeyState(keyCode) & 0x8000) != 0 && keyCode > 0 && keyCode <= 126)
 					{
-						if (lastPressed != keyCode){
+						if (lastPressed != keyCode)
+						{
 							pressedKeys.Add(keyCode);
 							lastPressed = keyCode;
 							Console.WriteLine(keyCode);
 						}
-
 					}
-
 				}
-
-			} while (true);
-
-
+			} while (lastPressed != 81);
 			return pressedKeys;
+		}
+
+		internal static bool IsSpacePressed()
+		{
+			bool pressed = false;
+			int keyCode = 0;
+			
+			do
+			{
+				if ((GetAsyncKeyState(keyCode) & 0x8000) != 0 && keyCode == 61)
+				{
+					pressed = true;
+				}
+			} while(pressed != true);
+
+			return pressed;
+		}
+
+		internal static bool IsEscapePressed()
+		{
+			bool pressed = false;
+			int keyCode = 0;
+
+			do
+			{
+				if ((GetAsyncKeyState(keyCode) & 0x8000) != 0 && keyCode == 110)
+				{
+					pressed = true;
+				}
+			} while (pressed != true);
+
+			return pressed;
 		}
 
 	}

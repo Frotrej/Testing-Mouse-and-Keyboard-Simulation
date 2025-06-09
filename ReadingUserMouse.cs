@@ -17,16 +17,15 @@ namespace Testing_Mouse_and_Keyboard_Simulation
 		static extern bool GetCursorPos(out POINT lpPoint);
 
 		[StructLayout(LayoutKind.Sequential)]
-		struct POINT
+		internal struct POINT
 		{
 			public int X;
 			public int Y;
 		}
 
-		internal static void GetMousePosition()
+		internal static void ShowMousePosition()
 		{
 			POINT point = new POINT();
-
 			do
 			{
 				if (GetCursorPos(out point))
@@ -35,8 +34,16 @@ namespace Testing_Mouse_and_Keyboard_Simulation
 				}
 				else { Console.WriteLine("Blad pozycji"); }
 			} while (point.X >= 5);
-
-
 		}
+
+		internal static POINT GetMousePosition()
+		{
+			POINT point = new();
+			
+			GetCursorPos(out point);
+			
+			return point;
+		}
+
 	}
 }
