@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace Testing_Mouse_and_Keyboard_Simulation
 {
-	internal class MouseWorking
+	internal class HookSharpTest
 	{
-		public void Start()
-		{
 
-		}
+
 	}
 }
