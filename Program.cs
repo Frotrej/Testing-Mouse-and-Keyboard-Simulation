@@ -10,7 +10,8 @@ Console.WriteLine("3 dla skrotu klawiszowego");
 Console.WriteLine("4 dla czytania myszy uzytkownika ");
 Console.WriteLine("5 dla czytania klawiszy uzytkownika ");
 Console.WriteLine("6 dla zapisania sekwencji myszy");
-Console.WriteLine("7 pokaz zapisana sekwencje");
+Console.WriteLine("7 pokaz zapisana sekwencje 6.");
+Console.WriteLine("9 SharpHook test");
 Console.WriteLine("0 Wyjscie\n\n");
 
 ReadSaveAndSymulate readSaveAndSymulate = new();
@@ -64,7 +65,7 @@ do
 		case 5:
 			Console.WriteLine("Opcja 5...");
 
-			ReadingUserKeyStrokes.RecordAndDisplayKeys();
+			//ReadingUserKeyStrokes.RecordAndDisplayKeys();
 
 			Console.WriteLine("Zakonczono\n\n");
 
@@ -87,6 +88,14 @@ do
 			{
 				Console.WriteLine($"X = {item.X}, Y = {item.Y}");
 			}
+
+			Console.WriteLine("Zakonczono\n\n");
+
+			break;
+		case 9:
+			Console.WriteLine("Opcja 9...");
+
+			SharpHookNuGet.Test();
 
 			Console.WriteLine("Zakonczono\n\n");
 

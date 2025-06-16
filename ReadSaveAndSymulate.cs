@@ -14,13 +14,13 @@ namespace Testing_Mouse_and_Keyboard_Simulation
 
 		internal void SaveMousePositions()
 		{
-			Console.WriteLine("Wcisnij spacje zeby zapisac pozycje myszy");
+			/*Console.WriteLine("Wcisnij spacje zeby zapisac pozycje myszy");
 			Console.WriteLine("Wcisnij ESC zeby przerwac");
 			do
 			{//TUTAJ SKONCZYLEM, DODADWANIE WIELU POZYCJI MYSZY NA RAZ
 				mouseXYs.Add(ReadingUserMouse.GetMousePosition());
 			}
-			while (ReadingUserKeyStrokes.IsEscapePressed());
+			while (ReadingUserKeyStrokes.IsEscapePressed());*/
 		}
 
 	}
